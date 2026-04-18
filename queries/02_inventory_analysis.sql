@@ -1,8 +1,3 @@
--- ============================================================
--- INVENTORY ANALYSIS
--- Monitors stock levels, warehouse capacity, and product distribution
--- ============================================================
-
 
 -- 1. Current Inventory Levels Per Warehouse
 -- Full picture of what stock is where

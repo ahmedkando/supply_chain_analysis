@@ -1,7 +1,3 @@
--- ============================================================
--- DELIVERY PERFORMANCE ANALYSIS
--- Evaluates carrier performance, delivery times, and transaction status
--- ============================================================
 
 
 -- 1. Delivery Time Analysis Per Transaction

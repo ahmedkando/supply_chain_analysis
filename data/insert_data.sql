@@ -1,8 +1,3 @@
--- ============================================================
--- SUPPLY CHAIN DATABASE - EXPANDED SAMPLE DATA
--- Realistic dataset for meaningful analytical results
--- ============================================================
-
 
 -- -------------------- PROCUREMENT --------------------
 

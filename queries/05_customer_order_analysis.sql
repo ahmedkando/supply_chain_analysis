@@ -1,8 +1,3 @@
--- ============================================================
--- CUSTOMER ORDER ANALYSIS
--- Tracks customer orders, revenue, and fulfillment performance
--- ============================================================
-
 
 -- 1. Customer Order Summary with Revenue
 -- Full breakdown of what each customer ordered and spent

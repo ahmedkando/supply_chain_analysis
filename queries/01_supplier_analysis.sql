@@ -1,8 +1,3 @@
--- ============================================================
--- SUPPLIER ANALYSIS
--- Evaluates supplier performance, pricing, and reliability
--- ============================================================
-
 
 -- 1. Supplier Price Competitiveness
 -- Shows each supplier's price vs the market average price per product

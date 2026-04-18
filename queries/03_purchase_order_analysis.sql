@@ -1,7 +1,3 @@
--- ============================================================
--- PURCHASE ORDER ANALYSIS
--- Tracks procurement spend, order status, and item breakdown
--- ============================================================
 
 
 -- 1. Full Purchase Order Details with Line Items

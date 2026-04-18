@@ -1,8 +1,3 @@
--- ============================================================
--- SUPPLY CHAIN DATABASE SCHEMA
--- Creates all tables with relationships and constraints
--- ============================================================
-
 
 -- -------------------- PROCUREMENT --------------------
 
