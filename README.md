@@ -13,7 +13,6 @@ Customer orders & revenue
 The Power BI dashboard transforms raw transactional data into interactive insights across multiple business domains, enabling data-driven decision-making and operational monitoring.
 
 🗄️ Database Schema
-
 The system is designed using a normalized relational database with the following modules:
 
 🔹 Modules & Tables
@@ -25,8 +24,9 @@ Purchase Orders	Purchase_Order, PO_Item	Orders and line items
 Warehouse	Warehouse, Inventory	Stock & storage
 Logistics	Carrier, Receiver, Transaction_record	Shipment tracking
 Customers	Customer, Customer_Order, Order_Item	Sales & customer data
+
 📁 SQL Files
-File	Purpose
+
 create_tables.sql	Create database schema
 insert_data.sql	Insert sample dataset
 01_supplier_analysis.sql	Supplier analytics views
@@ -34,9 +34,9 @@ insert_data.sql	Insert sample dataset
 03_purchase_order_analysis.sql	Procurement analytics
 04_delivery_performance.sql	Logistics & delivery views
 05_customer_order_analysis.sql	Sales & customer analytics
-📊 Analytical Views
 
-All views are designed for Power BI consumption (clean, aggregated, no ORDER BY).
+📊 Analytical Views
+All views are designed for Power BI consumption .
 
 🔹 Supplier Analysis
 Supplier_Price_Competitiveness
@@ -65,36 +65,23 @@ vw_Top_Products_By_Demand
 vw_Customer_Revenue_Ranking
 vw_Order_Fulfillment_Tracker
 vw_Revenue_By_Category
-📈 Power BI Dashboard
 
+📈 Power BI Dashboard
 The dashboard is built using Microsoft Power BI Desktop and organized into 5 pages:
 
-Page	Focus Area	Key Visuals
 1	Supplier Analysis	Lead time chart, price variance, portfolio
 2	Inventory	Warehouse utilization, stock alerts
 3	Purchase Orders	PO status, spend analysis
 4	Logistics	Carrier performance, delivery tracking
 5	Sales	Customer revenue, product demand
-⚙️ How to Run
-🔹 Step 1 — Setup Database
-Open your SQL tool (SSMS / MySQL Workbench)
-Run:
-create_tables.sql
-insert_data.sql
-Execute all analysis files (01 → 05) to create views
-🔹 Step 2 — Connect Power BI
-Open Power BI Desktop
-Click Get Data → SQL Server / MySQL
-Enter server name
-Load all views (vw_*)
-Build visuals
+
 🧰 Technology Stack
 Component	Technology
 Database	SQL Server / MySQL
 Query Language	SQL (DDL + DML + Views)
 Visualization	Microsoft Power BI
 Data Model	Star schema via views
-Features	Slicers, Filters, Drill-down
+
 📂 Project Structure
 procurement-dashboard/
 │
@@ -108,6 +95,7 @@ procurement-dashboard/
 │
 ├── dashboard.pbix
 └── README.md
+
 💡 Key Insights Delivered
 📉 Identify most cost-efficient suppliers
 ⏱ Analyze lead times & delivery performance
@@ -115,12 +103,13 @@ procurement-dashboard/
 💰 Track procurement spend
 🚚 Evaluate carrier performance
 📊 Discover top customers & best-selling products
+
 🚀 Future Improvements
 Add real-time data pipeline
-Integrate forecasting (demand prediction)
+Integrate forecasting 
 Add alerts for low stock & delays
 Deploy dashboard to Power BI Service
-👨‍💻 Author
 
+Author
 Ahmed Kandeel
 Computer Science Student | Data & Full-Stack Enthusiast
