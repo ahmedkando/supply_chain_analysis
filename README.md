@@ -1,119 +1,126 @@
-# Supply Chain Data Analysis (SQL + Power BI)
+📊 Procurement & Supply Chain Management System
 
-A relational database project simulating a real-world supply chain system — from supplier procurement and inventory management to customer order fulfillment. Built to demonstrate SQL database design, analytical querying, and data visualization skills.
+📌 Project Overview
 
----
+This project implements a full Procurement and Supply Chain Management System backed by a relational SQL database. It tracks the entire lifecycle from:
 
-## Project Overview
+Supplier requests (RF, RFI, RFQ)
+Purchase orders
+Inventory & warehouse management
+Logistics & delivery
+Customer orders & revenue
 
-This project models the full supply chain lifecycle:
+The Power BI dashboard transforms raw transactional data into interactive insights across multiple business domains, enabling data-driven decision-making and operational monitoring.
 
-**Supplier → RFI → RFQ → Purchase Order → Warehouse → Customer Order**
+🗄️ Database Schema
 
-It includes 18 relational tables covering procurement, inventory, logistics, and sales — with 20+ analytical SQL queries and a Power BI dashboard for visual reporting.
+The system is designed using a normalized relational database with the following modules:
 
----
+🔹 Modules & Tables
+Module	Tables	Description
+Procurement	RF, RFI, RFQ, RFQ_items	Request lifecycle management
+Suppliers	Supplier, SupplierContact, Supplies, Receives	Supplier profiles & relationships
+Products	Product	Product catalog
+Purchase Orders	Purchase_Order, PO_Item	Orders and line items
+Warehouse	Warehouse, Inventory	Stock & storage
+Logistics	Carrier, Receiver, Transaction_record	Shipment tracking
+Customers	Customer, Customer_Order, Order_Item	Sales & customer data
+📁 SQL Files
+File	Purpose
+create_tables.sql	Create database schema
+insert_data.sql	Insert sample dataset
+01_supplier_analysis.sql	Supplier analytics views
+02_inventory_analysis.sql	Inventory & warehouse views
+03_purchase_order_analysis.sql	Procurement analytics
+04_delivery_performance.sql	Logistics & delivery views
+05_customer_order_analysis.sql	Sales & customer analytics
+📊 Analytical Views
 
-## Database Schema
+All views are designed for Power BI consumption (clean, aggregated, no ORDER BY).
 
-| Area | Tables |
-|---|---|
-| Procurement | RF, RFI, RFQ, RFQ_items |
-| Suppliers | Supplier, SupplierContact, Supplies, Receives |
-| Orders | Purchase_Order, PO_Item |
-| Warehouse | Warehouse, Inventory |
-| Logistics | Carrier, Receiver, Transaction_record |
-| Customers | Customer, Customer_Order, Order_Item, Product |
+🔹 Supplier Analysis
+Supplier_Price_Competitiveness
+Supplier_Lead_Time_Ranking
+Supplier_Portfolio_Overview
+Suppliers_Who_Received_RFIs
+🔹 Inventory Analysis
+vw_Current_Inventory_Levels
+vw_Warehouse_Capacity_Utilization
+vw_Low_Stock_Alert
+vw_Products_Multi_Warehouse
+vw_Inventory_Value_By_Category
+🔹 Purchase Order Analysis
+vw_Purchase_Order_Details
+vw_Purchase_Order_Status_Summary
+vw_Procurement_Spend_Per_Product
+vw_RFQ_to_PO_Conversion
+🔹 Delivery Performance
+vw_Delivery_Time_Analysis
+vw_Carrier_Performance
+vw_Warehouse_Activity
+vw_Transaction_Audit
+🔹 Customer & Sales Analysis
+vw_Customer_Order_Summary
+vw_Top_Products_By_Demand
+vw_Customer_Revenue_Ranking
+vw_Order_Fulfillment_Tracker
+vw_Revenue_By_Category
+📈 Power BI Dashboard
 
----
+The dashboard is built using Microsoft Power BI Desktop and organized into 5 pages:
 
-## Project Structure
-
-```
-supply-chain-analysis/
+Page	Focus Area	Key Visuals
+1	Supplier Analysis	Lead time chart, price variance, portfolio
+2	Inventory	Warehouse utilization, stock alerts
+3	Purchase Orders	PO status, spend analysis
+4	Logistics	Carrier performance, delivery tracking
+5	Sales	Customer revenue, product demand
+⚙️ How to Run
+🔹 Step 1 — Setup Database
+Open your SQL tool (SSMS / MySQL Workbench)
+Run:
+create_tables.sql
+insert_data.sql
+Execute all analysis files (01 → 05) to create views
+🔹 Step 2 — Connect Power BI
+Open Power BI Desktop
+Click Get Data → SQL Server / MySQL
+Enter server name
+Load all views (vw_*)
+Build visuals
+🧰 Technology Stack
+Component	Technology
+Database	SQL Server / MySQL
+Query Language	SQL (DDL + DML + Views)
+Visualization	Microsoft Power BI
+Data Model	Star schema via views
+Features	Slicers, Filters, Drill-down
+📂 Project Structure
+procurement-dashboard/
 │
-├── README.md
-├── schema/
-│   └── create_tables.sql          -- All table definitions and relationships
-├── data/
-│   └── insert_data.sql            -- Sample data for testing
-└── queries/
-    ├── 01_supplier_analysis.sql   -- Supplier pricing, lead time, portfolio
-    ├── 02_inventory_analysis.sql  -- Stock levels, warehouse utilization, alerts
-    ├── 03_purchase_order_analysis.sql -- Spend tracking, order status, RFQ conversion
-    ├── 04_delivery_performance.sql    -- Carrier performance, transit times, audit trail
-    ├── 05_customer_order_analysis.sql -- Revenue, demand, fulfillment tracking
-    └── 06_advanced_analytics.sql      -- Window functions, revenue trends, inventory turnover
-```
+├── create_tables.sql
+├── insert_data.sql
+├── 01_supplier_analysis.sql
+├── 02_inventory_analysis.sql
+├── 03_purchase_order_analysis.sql
+├── 04_delivery_performance.sql
+├── 05_customer_order_analysis.sql
+│
+├── dashboard.pbix
+└── README.md
+💡 Key Insights Delivered
+📉 Identify most cost-efficient suppliers
+⏱ Analyze lead times & delivery performance
+📦 Monitor inventory levels & warehouse utilization
+💰 Track procurement spend
+🚚 Evaluate carrier performance
+📊 Discover top customers & best-selling products
+🚀 Future Improvements
+Add real-time data pipeline
+Integrate forecasting (demand prediction)
+Add alerts for low stock & delays
+Deploy dashboard to Power BI Service
+👨‍💻 Author
 
----
-
-## Key Analyses
-
-### Supplier Analysis
-- Price competitiveness vs market price with variance percentage
-- Lead time ranking to identify fastest suppliers
-- Supplier portfolio value and product coverage
-
-### Inventory Analysis
-- Real-time stock levels per warehouse
-- Warehouse capacity utilization percentage
-- Low stock alerts with CRITICAL / LOW / OK classification
-- Total inventory value by product category
-
-### Purchase Order Analysis
-- Full PO breakdown with line items and price comparison
-- Order status summary with total procurement spend
-- RFQ to PO conversion tracking with days-to-order metric
-
-### Delivery Performance
-- Transit time calculation per carrier
-- Carrier performance ranking by average delivery speed
-- Full transaction audit trail from PO to delivery
-
-### Advanced Analytics (Window Functions)
-- Top 3 suppliers per product ranked by price using RANK() OVER PARTITION BY
-- Top 3 suppliers per product ranked by lead time
-- Best overall supplier per product using combined price + speed score
-- Monthly revenue trend with running cumulative total using SUM() OVER
-- Month-over-month revenue change and growth percentage using LAG()
-- Monthly revenue breakdown by product category with percentage share
-- Inventory turnover ratio per product with HIGH / MODERATE / LOW classification
-- Inventory turnover and stock value per warehouse
-- Dead stock detection — products with stock but no sales
-
-### Customer Order Analysis
-- Revenue per customer and per product
-- Top products by demand and sales volume
-- Order fulfillment tracker with delivery status
-
----
-
-## Tools Used
-
-- **MySQL** — Database design and querying
-- **Power BI** — Dashboard and data visualization
-- **SQL** — DDL, DML, JOINs, aggregations, CASE statements, subqueries
-
----
-
-## How to Run
-
-1. Run `schema/create_tables.sql` to create the database
-2. Run `data/insert_data.sql` to populate with sample data
-3. Run any query file from the `queries/` folder in MySQL Workbench or any SQL client
-
----
-
-## Skills Demonstrated
-
-- Relational database design and normalization
-- Foreign key relationships and composite primary keys
-- Multi-table JOINs (INNER, LEFT)
-- Aggregate functions (SUM, AVG, COUNT, MIN, MAX)
-- Window functions (RANK, LAG, SUM OVER, PARTITION BY)
-- CASE statements for conditional logic
-- DATEDIFF for time-based analysis
-- GROUP BY, HAVING, ORDER BY
-- GROUP_CONCAT for readable output
-- Subqueries and CTEs
+Ahmed Kandeel
+Computer Science Student | Data & Full-Stack Enthusiast
